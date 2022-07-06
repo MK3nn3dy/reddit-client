@@ -7,6 +7,7 @@ const Articles = () => {
 
     const dispatch = useDispatch();
     const articles = useSelector(state => state.articles.articles);
+    const filterText = useSelector(state => state.articles.filterText);
 
     useEffect(() => {
         dispatch(getArticles("webdev"))
@@ -15,7 +16,17 @@ const Articles = () => {
     return (
         <section id="articles">
             {
-                articles && articles.map((article, index) => <Article article={article.data} key={index}/>)
+                    articles && articles.filter((article) => {
+                        if(filterText == ""){
+                            console.log("The value of filter text in the store is: ", filterText)
+                            return article;
+                        } else if (article.data.selftext.toLowerCase().includes(filterText.toLowerCase())){
+                            return article;
+                        }
+
+                    }).map((article, index) => {
+                        return <Article article={article.data} key={index}/>
+                })
             }
         </section>
     )

@@ -55,10 +55,6 @@
   overflow: hidden;
 }
 
-#searchform #search {
-  width: auto;
-}
-
 #searchform label:hover {
   cursor: pointer;
 }
@@ -100,24 +96,28 @@
 
 .navigation-shortcuts ul {
   height: 100%;
-  width: 60%;
-  padding-left: 2rem;
+  width: 70%;
   display: flex;
   align-items: center;
+  padding-left: 2rem;
 }
 
 .navigation-shortcuts ul li {
   display: inline;
-  padding: 0 3%;
+  padding: 0 10% 0 0;
   list-style: none;
 }
 
 /* SHORTCUT ICONS */
 
 .shortcut-icon {
+  height: 2.5rem;
+  min-width: 2.5rem;
   position: relative;
   display: grid;
   place-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
   cursor: pointer;
   transition: .5s all;
 }
@@ -128,51 +128,55 @@
 }
 
 #ghosts {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/Ghost.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #aliens {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/alien.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #ufo {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/UFO.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #bigfoot {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/Bigfoot.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #cryptids {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/Cryptid.png");
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 #telekinesis {
-  height: 2.5rem;
-  min-width: 2.5rem;
   background-image: url("./images/icons/Telekinesis.png");
-  background-repeat: no-repeat;
-  background-size: cover;
+}
+
+/* FILTER RESULTS BAR */
+
+#filterResults {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 1rem 2rem;
+  background-color: #222222;
+  color: white;
+  font-size: 2rem;
+  font-family: Quicksand;
+  min-height: 2rem;
+  box-shadow: 4px 0 10px #333333;
+  z-index: 5;
+}
+
+#filterLabel {
+  margin-right: 1rem;
+}
+
+#filterInput {
+  background-color: #222222;
+  border: none;
+  outline: none;
+  font-size: 2rem;
+  color: orange;
 }
 
 /* MAIN */
@@ -185,16 +189,12 @@
   justify-content: center;
 }
 
-section {
-  width: 100%;
-  display: grid;
-  place-items: center;
-}
-
 /* ARTICLES */
 
 #articles {
   width: 100%;
+  display: grid;
+  place-items: center;
 }
 
 article {

@@ -13,7 +13,8 @@ export const getArticles = createAsyncThunk(
 const initialState = {
     articles: [],
     status: null,
-    subreddit: 'webdev'
+    subreddit: 'webdev',
+    filterText: '',
 }
 
 export const articleSlice = createSlice({
@@ -22,6 +23,9 @@ export const articleSlice = createSlice({
     reducers: {
         changeSubreddit:(state, action) => {
             state.subreddit = action.payload;
+        },
+        changeFilter: (state, action) => {
+            state.filterText = action.payload;
         }
     },
     extraReducers:{
@@ -39,6 +43,6 @@ export const articleSlice = createSlice({
     }
 })
 
-export const { changeSubreddit, updateArticles } = articleSlice.actions;
+export const { changeFilter, changeSubreddit, updateArticles } = articleSlice.actions;
 
 export default articleSlice.reducer;

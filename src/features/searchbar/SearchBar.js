@@ -15,7 +15,7 @@ const SearchBar = () => {
 
     return (
             <form id="searchform" onSubmit={(e) => e.preventDefault()}>
-                <label id="searchLabel" htmlFor="search">search subreddits: </label>
+                <label id="searchLabel" htmlFor="search">search: </label>
                 <input type="text" id="search" value={subreddit} onChange={handleChange}/>
             </form>
     )

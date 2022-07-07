@@ -13,7 +13,7 @@ const FilterResults = () => {
 
     return (
         <form id="filterResults" onSubmit={(e) => e.preventDefault()}>
-            <label htmlFor="filterInput" id="filterLabel">Filter Results: </label>
+            <label htmlFor="filterInput" id="filterLabel">filter: </label>
             <input type="text" id="filterInput" value={filterText} onChange={handleChange}></input>
         </form>
     )

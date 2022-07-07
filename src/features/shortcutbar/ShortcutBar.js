@@ -1,13 +1,18 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { changeSubreddit } from '../articles/articleSlice';
-import { getArticles } from '../articles/articleSlice';
+import { changeSubreddit, getArticles } from '../articles/articleSlice';
+import { addIcon } from './shortcutSlice';
+import { useSelector } from 'react-redux';
 
 
 const ShortcutBar = () => {
 
     const dispatch = useDispatch();
+    const shortcutIcons = useSelector((state) => state.shortcuts.icons);
+    const shortcutIconsToAdd = useSelector((state) => state.shortcuts.iconsLibrary);
+    const menuVisible = useSelector((state) => state.shortcuts.menuVisible);
+    console.log(shortcutIcons);
 
     useEffect(() => {
 
@@ -24,33 +29,47 @@ const ShortcutBar = () => {
         }
     }
 
-    }, [])
+    }, [shortcutIcons, shortcutIconsToAdd, menuVisible])
     
 
     return (
             <nav className="navigation-shortcuts">
                 <ul>
-                    <li>
-                        <div id="ghosts" className="shortcut-icon"></div>
-                    </li>
-                    <li>
-                        <div id="aliens" className="shortcut-icon"></div>
-                    </li>
-                    <li>
-                        <div id="ufo" className="shortcut-icon"></div>
-                    </li>
-                    <li>
-                        <div id="cryptids" className="shortcut-icon"></div>
-                    </li>
-                    <li>
-                        <div id="bigfoot" className="shortcut-icon"></div>
-                    </li>
-                    <li>
-                        <div id="telekinesis" className="shortcut-icon"></div>
-                    </li>
+                    {
+                        shortcutIcons && shortcutIcons.map((icon, index) => {
+                            return (
+                                <li id={icon + "-div"} key={index}>
+                                    <div id={icon} className="shortcut-icon"></div>
+                                </li>
+                            )                            
+                        })
+                            
+                    }
+                    
                 </ul>
             </nav>
     )
 }
 
 export default ShortcutBar;
+
+                    /* OLD HARD-CODED ICONS */
+
+                    /*<li>
+                        <div id="Ghost" className="shortcut-icon"></div>
+                    </li>
+                    <li>
+                        <div id="Alien" className="shortcut-icon"></div>
+                    </li>
+                    <li>
+                        <div id="UFO" className="shortcut-icon"></div>
+                    </li>
+                    <li>
+                        <div id="Cryptid" className="shortcut-icon"></div>
+                    </li>
+                    <li>
+                        <div id="Bigfoot" className="shortcut-icon"></div>
+                    </li>
+                    <li>
+                        <div id="Telekinesis" className="shortcut-icon"></div>
+                    </li>*/

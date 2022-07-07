@@ -18,12 +18,12 @@ const Articles = () => {
             {
                     articles && articles.filter((article) => {
                         if(filterText == ""){
-                            console.log("The value of filter text in the store is: ", filterText)
                             return article;
                         } else if (article.data.selftext.toLowerCase().includes(filterText.toLowerCase())){
                             return article;
+                        } else if (article.data.title.toLowerCase().includes(filterText.toLowerCase())){
+                            return article;
                         }
-
                     }).map((article, index) => {
                         return <Article article={article.data} key={index}/>
                 })
